@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "loader - Client",
+      "presentation": {
+        "group": "Mod Development - loader",
+        "order": 0
+      },
+      "projectName": "neoforge-loader",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\matia\\OneDrive\\Documentos\\Github\\LuckPerms\\neoforge\\loader\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\matia\\OneDrive\\Documentos\\Github\\LuckPerms\\neoforge\\loader\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003d"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\loader\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "loader - Server",
+      "presentation": {
+        "group": "Mod Development - loader",
+        "order": 1
+      },
+      "projectName": "neoforge-loader",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\matia\\OneDrive\\Documentos\\Github\\LuckPerms\\neoforge\\loader\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\matia\\OneDrive\\Documentos\\Github\\LuckPerms\\neoforge\\loader\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003d"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\loader\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

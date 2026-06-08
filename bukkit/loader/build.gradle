@@ -6,6 +6,10 @@ repositories {
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+}
+
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
 

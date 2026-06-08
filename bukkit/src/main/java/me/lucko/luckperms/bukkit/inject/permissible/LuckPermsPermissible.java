@@ -53,6 +53,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -244,10 +245,9 @@ public class LuckPermsPermissible extends PermissibleBase {
         }
 
         LuckPermsPermissionAttachment attachment = addAttachment(plugin);
-        if (getPlugin().getBootstrap().getServer().getScheduler().scheduleSyncDelayedTask(plugin, attachment::remove, ticks) == -1) {
-            attachment.remove();
-            throw new RuntimeException("Could not add PermissionAttachment to " + this.player + " for plugin " + plugin.getDescription().getFullName() + ": Scheduler returned -1");
-        }
+        this.getPlugin().getBootstrap().getScheduler().asyncLater(() -> {
+            this.getPlugin().getBootstrap().getScheduler().executeSync(this.player, attachment::remove);
+        }, ticks * 50L, TimeUnit.MILLISECONDS);
         return attachment;
     }
 
